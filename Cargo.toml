@@ -1,0 +1,10 @@
+[workspace]
+members = [
+    "common",
+    "backend",
+    "frontend",
+]
+
+[profile.release]
+codegen-units = 1
+lto = true

@@ -1,0 +1,18 @@
+version: "3.4"
+services:
+  backend:
+    image: ghcr.io/m4tx/chombo-gen-backend:master
+    restart: unless-stopped
+
+  frontend:
+    image: ghcr.io/m4tx/chombo-gen-frontend:master
+    restart: unless-stopped
+
+  proxy:
+    image: ghcr.io/m4tx/chombo-gen-proxy:master
+    restart: unless-stopped
+    depends_on:
+      - backend
+      - frontend
+    ports:
+      - 8000:80

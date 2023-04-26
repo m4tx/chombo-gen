@@ -1,0 +1,5 @@
+/target/
+/frontend/dist/
+*.dockerfile
+docker-compose.yml
+README.md

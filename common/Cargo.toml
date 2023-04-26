@@ -1,0 +1,21 @@
+[package]
+name = "chombo-gen-common"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.68"
+
+description = "Web service generating images of Japanese (Riichi) Mahjong hands - common library"
+categories = ["rendering", "wasm", "web-programming"]
+authors = ["Mateusz Maćkowski <mateusz@mackowski.org>"]
+keywords = ["riichi", "mahjong", "renderer"]
+readme = "../README.md"
+repository = "https://github.com/m4tx/chombo-gen.git"
+homepage = "https://github.com/m4tx/chombo-gen"
+license = "MIT"
+
+[dependencies]
+serde = { version = "1.0.160", features = ["derive"] }
+rocket = { version = "0.5.0-rc.3", optional = true }
+
+[features]
+backend = ["rocket"]

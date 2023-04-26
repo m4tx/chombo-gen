@@ -1,0 +1,25 @@
+[package]
+name = "chombo-gen-frontend"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.68"
+
+description = "Web service generating images of Japanese (Riichi) Mahjong hands - webapp frontend"
+categories = ["rendering", "wasm", "web-programming"]
+authors = ["Mateusz Maćkowski <mateusz@mackowski.org>"]
+keywords = ["riichi", "mahjong", "renderer"]
+readme = "../README.md"
+repository = "https://github.com/m4tx/chombo-gen.git"
+homepage = "https://github.com/m4tx/chombo-gen"
+license = "MIT"
+
+[dependencies]
+chombo-gen-common = { path = "../common" }
+gloo-net = "0.2.6"
+yew = { version = "0.20", features = ["csr"] }
+yew-hooks = "0.2.0"
+serde = { version = "1.0", features = ["derive"] }
+wasm-bindgen-futures = "0.4"
+base64 = "0.21.0"
+wasm-bindgen = "0.2.84"
+web-sys = { version = "0.3.61", features = ["console", "HtmlElement", "HtmlButtonElement", "HtmlSelectElement", "MouseEvent", "DomRect"] }
