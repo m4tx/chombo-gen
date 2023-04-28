@@ -11,7 +11,7 @@ keywords = ["riichi", "mahjong", "renderer"]
 readme = "../README.md"
 repository = "https://github.com/m4tx/chombo-gen.git"
 homepage = "https://github.com/m4tx/chombo-gen"
-license = "MIT"
+license = "AGPL-3.0-only"
 
 [dependencies]
 chombo-gen-common = { path = "../common", features = ["backend"] }
