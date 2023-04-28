@@ -195,6 +195,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "chombo-gen-frontend"
+version = "0.1.0"
+dependencies = [
+ "base64 0.21.0",
+ "chombo-gen-common",
+ "gloo-net",
+ "serde",
+ "wasm-bindgen",
+ "wasm-bindgen-futures",
+ "web-sys",
+ "yew",
+ "yew-hooks",
+]
+
+[[package]]
 name = "chrono"
 version = "0.4.24"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2196,21 +2211,6 @@ dependencies = [
  "tracing",
  "tracing-core",
  "tracing-log",
-]
-
-[[package]]
-name = "trunk-template"
-version = "0.1.0"
-dependencies = [
- "base64 0.21.0",
- "chombo-gen-common",
- "gloo-net",
- "serde",
- "wasm-bindgen",
- "wasm-bindgen-futures",
- "web-sys",
- "yew",
- "yew-hooks",
 ]
 
 [[package]]

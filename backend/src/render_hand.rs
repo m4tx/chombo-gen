@@ -32,6 +32,7 @@ impl From<ImageError> for ServiceError {
     }
 }
 
+const MAX_HAND_LEN: usize = 100;
 const CACHE_MAX_AGE: Duration = Duration::days(7);
 
 #[get("/hand?<hand>&<tile_set>")]
@@ -39,6 +40,14 @@ pub async fn render_hand(
     hand: String,
     tile_set: TileSet,
 ) -> Result<(ContentType, CacheResponse<Vec<u8>>), ServiceError> {
+    if hand.len() > MAX_HAND_LEN {
+        return Err(ServiceError::BadRequest(format!(
+            "Maximum hand description length exceeded ({}/{} characters)",
+            hand.len(),
+            MAX_HAND_LEN
+        )));
+    }
+
     let tile_set = match tile_set {
         TileSet::Yellow => &*YELLOW_FLUFFY_STUFF_TILE_SET,
         TileSet::Red => &*RED_FLUFFY_STUFF_TILE_SET,
