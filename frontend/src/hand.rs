@@ -81,7 +81,15 @@ pub fn Hand(props: &Props) -> Html {
             let encoded_url = base64::engine::general_purpose::STANDARD.encode(img);
             let encoded_url = format!("data:image/png;base64,{}", encoded_url);
             html! {
-                <img src={ encoded_url } class="img-fluid mx-auto d-block" />
+                <>
+                    <img src={ encoded_url.clone() } class="img-fluid mx-auto d-block mb-2" />
+                    <div class="text-center">
+                        <a class="btn btn-primary btn-lg text-center" href={ encoded_url } download="hand.png">
+                            <i class="bi bi-download me-1"></i>
+                            { "Save the image" }
+                        </a>
+                    </div>
+                </>
             }
         }
         HandState::Error(error) => html! {
