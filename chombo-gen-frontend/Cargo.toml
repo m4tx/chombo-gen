@@ -14,7 +14,7 @@ homepage = "https://github.com/m4tx/chombo-gen"
 license = "AGPL-3.0-only"
 
 [dependencies]
-chombo-gen-common = { path = "../common" }
+chombo-gen-common = { path = "../chombo-gen-common" }
 gloo-net = "0.2.6"
 yew = { version = "0.20", features = ["csr"] }
 yew-hooks = "0.2.0"
