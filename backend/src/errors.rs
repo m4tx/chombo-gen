@@ -2,13 +2,12 @@ use std::error::Error;
 use std::fmt::{Display, Formatter};
 use std::io::Cursor;
 
+use chombo_gen_common::errors::ServiceErrorResponse;
 use log::error;
 use rocket::http::{ContentType, Status};
 use rocket::response::Responder;
 use rocket::tokio::task::JoinError;
 use rocket::{response, Request, Response};
-
-use chombo_gen_common::errors::ServiceErrorResponse;
 
 #[derive(Debug, Clone)]
 pub enum ServiceError {

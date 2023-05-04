@@ -1,6 +1,5 @@
 use chrono::Local;
-use log::{LevelFilter, SetLoggerError};
-use log::{Metadata, Record};
+use log::{LevelFilter, Metadata, Record, SetLoggerError};
 
 struct Logger;
 

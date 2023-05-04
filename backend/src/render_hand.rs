@@ -2,8 +2,7 @@ use std::io::Cursor;
 use std::time::Instant;
 
 use chombo_gen_common::tile_set::TileSet;
-use image::DynamicImage;
-use image::ImageError;
+use image::{DynamicImage, ImageError};
 use log::{error, info};
 use riichi_hand::parser::{HandParseError, HandParser};
 use riichi_hand::raster_renderer::fluffy_stuff_tile_sets::{
