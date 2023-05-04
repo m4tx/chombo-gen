@@ -46,8 +46,8 @@ jobs:
       - name: Test
         run: cargo +${{ matrix.rust }} test
 
-      - name: Build frontend
-        run: cd frontend && trunk build
+      - name: Build chombo-gen-frontend
+        run: cd chombo-gen-frontend && trunk build
 
   clippy:
     runs-on: ubuntu-latest

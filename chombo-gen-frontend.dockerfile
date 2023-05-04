@@ -3,9 +3,9 @@ RUN rustup target add wasm32-unknown-unknown
 RUN cargo install trunk
 WORKDIR /usr/src/chombo-gen
 COPY . .
-WORKDIR /usr/src/chombo-gen/frontend
+WORKDIR /usr/src/chombo-gen/chombo-gen-frontend
 ENV CHOMBO_GEN_API_URL=/api
 RUN trunk build --release
 
 FROM nginx:1.24
-COPY --from=builder /usr/src/chombo-gen/frontend/dist /usr/share/nginx/html
+COPY --from=builder /usr/src/chombo-gen/chombo-gen-frontend/dist /usr/share/nginx/html

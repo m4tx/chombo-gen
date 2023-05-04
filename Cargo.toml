@@ -1,8 +1,8 @@
 [workspace]
 members = [
-    "common",
-    "backend",
-    "frontend",
+    "chombo-gen-common",
+    "chombo-gen-backend",
+    "chombo-gen-frontend",
 ]
 
 [profile.release]

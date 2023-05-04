@@ -14,7 +14,7 @@ homepage = "https://github.com/m4tx/chombo-gen"
 license = "AGPL-3.0-only"
 
 [dependencies]
-chombo-gen-common = { path = "../common", features = ["backend"] }
+chombo-gen-common = { path = "../chombo-gen-common", features = ["backend"] }
 riichi_hand = "0.2.0"
 rocket = "0.5.0-rc.3"
 rocket-cache-response = "0.6.2"
