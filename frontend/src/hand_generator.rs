@@ -46,7 +46,7 @@ pub fn HandGenerator() -> Html {
 
             <div class="mb-3">
                 <label for="tile-set-select" class="form-label">{ "Tile Set" }</label>
-                <Select<TileSet> on_set_value={ on_tile_set_select } options={ options } id="tile-set-select" />
+                <Select<TileSet> on_set_value={ on_tile_set_select } { options } id="tile-set-select" />
             </div>
             <div class="mb-3">
                 <label for="hand" class="form-label">{ "Hand" }</label>

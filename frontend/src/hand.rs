@@ -32,7 +32,7 @@ impl Default for HandState {
 const API_URL: Option<&str> = option_env!("CHOMBO_GEN_API_URL");
 
 fn api_url() -> &'static str {
-    API_URL.unwrap_or("http://127.0.0.1:8000")
+    API_URL.unwrap_or("/api")
 }
 
 #[function_component]
