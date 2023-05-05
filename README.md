@@ -31,7 +31,7 @@ To build a release version, execute:
 cargo build --release
 ```
 
-The target binary will be put at `target/debug/chombo-gen-backend`.
+The target binary will be put at `target/release/chombo-gen-backend`.
 
 ### Frontend
 

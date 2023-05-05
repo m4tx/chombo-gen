@@ -1,6 +1,7 @@
 use std::io::Cursor;
 use std::time::Instant;
 
+use chombo_gen_common::tile_set;
 use chombo_gen_common::tile_set::TileSet;
 use image::{DynamicImage, ImageError};
 use log::{error, info};
@@ -8,7 +9,8 @@ use riichi_hand::parser::{HandParseError, HandParser};
 use riichi_hand::raster_renderer::fluffy_stuff_tile_sets::{
     BLACK_FLUFFY_STUFF_TILE_SET, RED_FLUFFY_STUFF_TILE_SET, YELLOW_FLUFFY_STUFF_TILE_SET,
 };
-use riichi_hand::raster_renderer::{RasterRenderer, RenderOptions};
+use riichi_hand::raster_renderer::martin_persson_tile_sets::MARTIN_PERSSON_TILE_SET;
+use riichi_hand::raster_renderer::{HandRenderError, RasterRenderer, RenderOptions};
 use rocket::get;
 use rocket::http::ContentType;
 use rocket::tokio::task;
@@ -31,6 +33,13 @@ impl From<ImageError> for ServiceError {
     }
 }
 
+impl From<HandRenderError> for ServiceError {
+    fn from(error: HandRenderError) -> Self {
+        error!("{:?}", error);
+        Self::BadRequest(error.to_string())
+    }
+}
+
 const MAX_HAND_LEN: usize = 100;
 const CACHE_MAX_AGE: Duration = Duration::days(7);
 
@@ -47,17 +56,23 @@ pub async fn render_hand(
         )));
     }
 
-    let tile_set = match tile_set {
-        TileSet::Yellow => &*YELLOW_FLUFFY_STUFF_TILE_SET,
-        TileSet::Red => &*RED_FLUFFY_STUFF_TILE_SET,
-        TileSet::Black => &*BLACK_FLUFFY_STUFF_TILE_SET,
-    };
-
     let hand_obj = HandParser::parse(&hand)?;
 
     let buf = task::spawn_blocking(move || {
         let render_time = Instant::now();
-        let image = RasterRenderer::render(&hand_obj, tile_set, RenderOptions::default());
+        let options = RenderOptions::default();
+        let image = match tile_set {
+            TileSet::Yellow => {
+                RasterRenderer::render(&hand_obj, &*YELLOW_FLUFFY_STUFF_TILE_SET, options)
+            }
+            TileSet::Red => RasterRenderer::render(&hand_obj, &*RED_FLUFFY_STUFF_TILE_SET, options),
+            TileSet::Black => {
+                RasterRenderer::render(&hand_obj, &*BLACK_FLUFFY_STUFF_TILE_SET, options)
+            }
+            TileSet::MartinPersson => {
+                RasterRenderer::render(&hand_obj, &*MARTIN_PERSSON_TILE_SET, options)
+            }
+        }?;
         let render_elapsed = render_time.elapsed();
 
         let create_png_time = Instant::now();

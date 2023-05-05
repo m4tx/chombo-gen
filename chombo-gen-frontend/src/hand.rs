@@ -1,4 +1,5 @@
 use base64::Engine;
+use chombo_gen_common::enums::EnumName;
 use chombo_gen_common::tile_set::TileSet;
 use gloo_net::http::Request;
 use serde::{Deserialize, Serialize};
@@ -54,7 +55,7 @@ pub fn Hand(props: &Props) -> Html {
                     wasm_bindgen_futures::spawn_local(async move {
                         let result = Request::get(&format!("{}/hand/", api_url()))
                             .query([("hand", hand_val)])
-                            .query([("tile_set", tile_set.to_string())])
+                            .query([("tile_set", tile_set.name())])
                             .send()
                             .await
                             .unwrap();

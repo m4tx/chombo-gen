@@ -29,6 +29,10 @@ pub fn app() -> Html {
                 <div class="bg-body-tertiary p-5 rounded">
                     <HandGenerator />
                 </div>
+
+                <div class="text-center mt-4 text-secondary"><small>
+                    { "This uses "}<a href="https://github.com/FluffyStuff/riichi-mahjong-tiles">{ "riichi-mahjong-tiles by FluffyStuff"}</a>{" (licensed under CC BY 4.0), and mahjong tiles by "}<a href="https://www.martinpersson.org/">{ "Martin Persson" }</a>{ "." }
+                </small></div>
             </main>
         </>
     }

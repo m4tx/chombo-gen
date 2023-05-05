@@ -38,7 +38,12 @@ pub fn HandGenerator() -> Html {
         })
     };
 
-    let options = vec![TileSet::Yellow, TileSet::Red, TileSet::Black];
+    let options = vec![
+        TileSet::Yellow,
+        TileSet::Red,
+        TileSet::Black,
+        TileSet::MartinPersson,
+    ];
 
     html! {
         <>

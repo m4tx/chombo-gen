@@ -1,5 +1,6 @@
 use std::fmt::Display;
 
+use chombo_gen_common::enums::EnumName;
 use wasm_bindgen::JsCast;
 use web_sys::{EventTarget, HtmlSelectElement};
 use yew::prelude::*;
@@ -15,7 +16,7 @@ pub struct Props<T: PartialEq> {
 #[function_component]
 pub fn Select<T>(props: &Props<T>) -> Html
 where
-    T: PartialEq + Copy + Default + Display + 'static,
+    T: PartialEq + Copy + Default + EnumName + Display + 'static,
 {
     let on_change = {
         let props = props.clone();
@@ -36,7 +37,7 @@ where
         <select onchange={on_change} class="form-select" aria-label="Tile Set" id={props.id.clone()}>
             {
                 props.options.iter().map(|option| {
-                    html!{<option value={ option.to_string() } selected={ *option == T::default() }>{ option.to_string() }</option>}
+                    html!{<option value={ option.name() } selected={ *option == T::default() }>{ option.to_string() }</option>}
                 }).collect::<Html>()
             }
         </select>
