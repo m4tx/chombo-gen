@@ -7,5 +7,5 @@ WORKDIR /usr/src/chombo-gen/chombo-gen-frontend
 ENV CHOMBO_GEN_API_URL=/api
 RUN trunk build --release
 
-FROM nginx:1.24
+FROM nginx:1.25
 COPY --from=builder /usr/src/chombo-gen/chombo-gen-frontend/dist /usr/share/nginx/html
