@@ -17,7 +17,7 @@ The project is written purely in [Rust](https://www.rust-lang.org/), both its ba
 
 ### Backend
 
-To run the development server, run:
+To run the development server, go to the `chombo-gen-backend/` directory and run:
 
 ```shell
 cargo run
@@ -44,7 +44,7 @@ rustup target add wasm32-unknown-unknown
 cargo install trunk
 ```
 
-Then, you can use:
+Then, you can go to the `chombo-gen-frontend/` directory and use:
 
 ```shell
 trunk serve
