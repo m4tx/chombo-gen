@@ -14,7 +14,7 @@ homepage = "https://github.com/m4tx/chombo-gen"
 license = "AGPL-3.0-only"
 
 [dependencies]
-serde = { version = "1.0.160", features = ["derive"] }
+serde.workspace = true
 rocket = { version = "0.5.0-rc.3", optional = true }
 
 [features]
