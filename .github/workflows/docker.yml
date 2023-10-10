@@ -11,6 +11,7 @@ name: Docker Images
 
 on:
   push:
+  pull_request:
 
 env:
   REGISTRY: ghcr.io
