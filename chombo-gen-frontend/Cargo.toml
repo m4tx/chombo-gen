@@ -17,7 +17,7 @@ license = "AGPL-3.0-only"
 chombo-gen-common = { path = "../chombo-gen-common" }
 gloo-net = "0.4.0"
 yew = { version = "0.20", features = ["csr"] }
-yew-hooks = "0.2.0"
+yew-hooks = "0.3.0"
 serde.workspace = true
 wasm-bindgen-futures = "0.4.37"
 base64 = "0.21.4"
