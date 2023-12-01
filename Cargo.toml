@@ -11,4 +11,4 @@ codegen-units = 1
 lto = true
 
 [workspace.dependencies]
-serde = { version = "1.0.188", features = ["derive"] }
+serde = { version = "1.0.193", features = ["derive"] }
