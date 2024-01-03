@@ -46,35 +46,32 @@ pub fn Hand(props: &Props) -> Html {
         let hand_val = hand.clone();
         let tile_set = *tile_set;
 
-        use_effect_with_deps(
-            move |_| {
-                if !hand_val.is_empty() {
-                    hand_state.set(HandState::Loading);
-                    let hand_state = hand_state.clone();
+        use_effect_with((hand.clone(), tile_set), move |_| {
+            if !hand_val.is_empty() {
+                hand_state.set(HandState::Loading);
+                let hand_state = hand_state.clone();
 
-                    wasm_bindgen_futures::spawn_local(async move {
-                        let result = Request::get(&format!("{}/hand/", api_url()))
-                            .query([("hand", hand_val)])
-                            .query([("tile_set", tile_set.name())])
-                            .send()
-                            .await
-                            .unwrap();
+                wasm_bindgen_futures::spawn_local(async move {
+                    let result = Request::get(&format!("{}/hand/", api_url()))
+                        .query([("hand", hand_val)])
+                        .query([("tile_set", tile_set.name())])
+                        .send()
+                        .await
+                        .unwrap();
 
-                        if result.ok() {
-                            let image = result.binary().await.unwrap();
-                            hand_state.set(HandState::Image(image));
-                        } else {
-                            let error: ServiceErrorResponse = result.json().await.unwrap();
-                            hand_state.set(HandState::Error(error));
-                        }
-                    });
-                } else {
-                    hand_state.set(HandState::Empty);
-                }
-                || ()
-            },
-            (hand.clone(), tile_set),
-        );
+                    if result.ok() {
+                        let image = result.binary().await.unwrap();
+                        hand_state.set(HandState::Image(image));
+                    } else {
+                        let error: ServiceErrorResponse = result.json().await.unwrap();
+                        hand_state.set(HandState::Error(error));
+                    }
+                });
+            } else {
+                hand_state.set(HandState::Empty);
+            }
+            || ()
+        });
     }
 
     match (*hand_state).clone() {
