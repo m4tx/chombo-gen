@@ -1,9 +1,9 @@
 chombo-gen
 ==========
 
-[![Rust CI Build Status](https://github.com/m4tx/chombo-gen/workflows/Rust%20CI/badge.svg)](https://github.com/m4tx/chombo-gen/actions/workflows/rust.yml)
-[![Docker Images Build Status](https://github.com/m4tx/chombo-gen/workflows/Docker%20Images/badge.svg)](https://github.com/m4tx/chombo-gen/actions/workflows/docker.yml)
-[![AGPL licensed](https://shields.io/github/license/m4tx/chombo-gen)](https://github.com/m4tx/chombo-gen/blob/master/LICENSE)
+[![Rust Build Status](https://github.com/m4tx/chombo-gen/workflows/Rust%20CI/badge.svg)](https://github.com/m4tx/chombo-gen/actions/workflows/rust.yml)
+[![Docker Build Status](https://github.com/m4tx/chombo-gen/workflows/Docker/badge.svg)](https://github.com/m4tx/chombo-gen/actions/workflows/docker-publish.yml)
+[![GNU AGPL v3 licensed](https://img.shields.io/github/license/m4tx/chombo-gen)](https://github.com/m4tx/chombo-gen/blob/master/LICENSE)
 
 ChomboGen is a web service that allows to generate images of Japanese (Riichi) Mahjong hands. The hands are provided in a text format and are generated in PNG format.
 
