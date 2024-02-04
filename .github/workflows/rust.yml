@@ -3,6 +3,8 @@ name: Rust CI
 on:
   push:
   pull_request:
+  schedule:
+    - cron: "0 0 * * *"
 
 env:
   CARGO_TERM_COLOR: always
@@ -17,15 +19,16 @@ jobs:
   build:
     strategy:
       matrix:
-        rust: ["stable", "beta", "nightly"]
-        os: [ubuntu-latest, macos-latest, windows-2019]
+        rust: [stable, nightly]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
 
       - name: Cache Cargo registry
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/registry
@@ -42,23 +45,23 @@ jobs:
         run: cargo install trunk
 
       - name: Build
-        run: cargo +${{ matrix.rust }} build
+        run: cargo +${{ matrix.rust }} build --features=${{ matrix.features }}
 
       - name: Test
-        run: cargo +${{ matrix.rust }} test
+        run: cargo +${{ matrix.rust }} test --features=${{ matrix.features }}
 
-      - name: Build chombo-gen-frontend
+      - name: Build Trunk project chombo-gen-frontend
         run: cd chombo-gen-frontend && trunk build
 
   clippy:
     runs-on: ubuntu-latest
-    needs: ['build']
+    needs: ["build"]
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
 
       - name: Cache Cargo registry
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/registry
@@ -66,8 +69,9 @@ jobs:
           key: ${{ runner.os }}-cargo-debug-${{ hashFiles('**/Cargo.toml') }}
 
       - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@beta
+        uses: dtolnay/rust-toolchain@master
         with:
+          toolchain: stable
           components: clippy
 
       - name: Run clippy
@@ -75,13 +79,13 @@ jobs:
 
   rustfmt:
     runs-on: ubuntu-latest
-    needs: ['build']
+    needs: ["build"]
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
 
       - name: Cache Cargo registry
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/registry
@@ -89,8 +93,9 @@ jobs:
           key: ${{ runner.os }}-cargo-debug-${{ hashFiles('**/Cargo.toml') }}
 
       - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@nightly
+        uses: dtolnay/rust-toolchain@master
         with:
+          toolchain: nightly
           components: rustfmt
 
       - name: Run fmt
