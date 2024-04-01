@@ -17,9 +17,9 @@ license = "AGPL-3.0-only"
 chombo-gen-common = { path = "../chombo-gen-common" }
 gloo-net = "0.5.0"
 yew = { version = "0.21", features = ["csr"] }
-yew-hooks = "0.3.0"
+yew-hooks = "0.3.1"
 serde.workspace = true
-wasm-bindgen-futures = "0.4.39"
-base64 = "0.21.7"
+wasm-bindgen-futures = "0.4.42"
+base64 = "0.22.0"
 wasm-bindgen = "0.2.90"
-web-sys = { version = "0.3.67", features = ["console", "HtmlElement", "HtmlButtonElement", "HtmlSelectElement", "MouseEvent", "DomRect"] }
+web-sys = { version = "0.3.69", features = ["console", "HtmlElement", "HtmlButtonElement", "HtmlSelectElement", "MouseEvent", "DomRect"] }
