@@ -77,7 +77,7 @@ pub async fn render_hand(
         let create_png_time = Instant::now();
         let mut buf = Vec::new();
         DynamicImage::ImageRgba8(image)
-            .write_to(&mut Cursor::new(&mut buf), image::ImageOutputFormat::Png)?;
+            .write_to(&mut Cursor::new(&mut buf), image::ImageFormat::Png)?;
         let create_png_elapsed = create_png_time.elapsed();
 
         info!(
