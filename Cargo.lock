@@ -655,6 +655,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "gloo"
+version = "0.11.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d15282ece24eaf4bd338d73ef580c6714c8615155c4190c781290ee3fa0fd372"
+dependencies = [
+ "gloo-console 0.3.0",
+ "gloo-dialogs 0.2.0",
+ "gloo-events 0.2.0",
+ "gloo-file 0.3.0",
+ "gloo-history 0.2.2",
+ "gloo-net 0.5.0",
+ "gloo-render 0.2.0",
+ "gloo-storage 0.3.0",
+ "gloo-timers 0.3.0",
+ "gloo-utils 0.2.0",
+ "gloo-worker 0.5.0",
+]
+
+[[package]]
 name = "gloo-console"
 version = "0.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -787,7 +806,7 @@ dependencies = [
  "futures-core",
  "futures-sink",
  "gloo-utils 0.1.7",
- "http",
+ "http 0.2.12",
  "js-sys",
  "pin-project",
  "serde",
@@ -808,7 +827,7 @@ dependencies = [
  "futures-core",
  "futures-sink",
  "gloo-utils 0.2.0",
- "http",
+ "http 0.2.12",
  "js-sys",
  "pin-project",
  "serde",
@@ -829,7 +848,7 @@ dependencies = [
  "futures-core",
  "futures-sink",
  "gloo-utils 0.2.0",
- "http",
+ "http 0.2.12",
  "js-sys",
  "pin-project",
  "serde",
@@ -973,6 +992,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "gloo-worker"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "085f262d7604911c8150162529cefab3782e91adb20202e8658f7275d2aefe5d"
+dependencies = [
+ "bincode",
+ "futures",
+ "gloo-utils 0.2.0",
+ "gloo-worker-macros",
+ "js-sys",
+ "pinned",
+ "serde",
+ "thiserror",
+ "wasm-bindgen",
+ "wasm-bindgen-futures",
+ "web-sys",
+]
+
+[[package]]
 name = "gloo-worker-macros"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -995,7 +1033,7 @@ dependencies = [
  "futures-core",
  "futures-sink",
  "futures-util",
- "http",
+ "http 0.2.12",
  "indexmap",
  "slab",
  "tokio",
@@ -1027,13 +1065,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "http"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "21b9ddb458710bc376481b842f5da65cdf31522de232c1ca8146abce2a358258"
+dependencies = [
+ "bytes",
+ "fnv",
+ "itoa",
+]
+
+[[package]]
 name = "http-body"
 version = "0.4.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7ceab25649e9960c0311ea418d17bee82c0dcec1bd053b5f9a66e265a693bed2"
 dependencies = [
  "bytes",
- "http",
+ "http 0.2.12",
  "pin-project-lite",
 ]
 
@@ -1060,7 +1109,7 @@ dependencies = [
  "futures-core",
  "futures-util",
  "h2",
- "http",
+ "http 0.2.12",
  "http-body",
  "httparse",
  "httpdate",
@@ -1304,16 +1353,15 @@ dependencies = [
 
 [[package]]
 name = "multer"
-version = "2.1.0"
+version = "3.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "01acbdc23469fd8fe07ab135923371d5f5a422fbf9c522158677c8eb15bc51c2"
+checksum = "83e87776546dc87511aa5ee218730c92b666d7264ab6ed41f9d215af9cd5224b"
 dependencies = [
  "bytes",
  "encoding_rs",
  "futures-util",
- "http",
+ "http 1.1.0",
  "httparse",
- "log",
  "memchr",
  "mime",
  "spin",
@@ -1747,9 +1795,9 @@ dependencies = [
 
 [[package]]
 name = "riichi_hand"
-version = "0.6.2"
+version = "0.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e87e4bce9578bae3ee1637abc7010e181b005e2ed9840c512906c55c475c854f"
+checksum = "f9618da5a189b4bb5bdbeb77cfd45657548fa8a698ce939aa7b07b3a659be813"
 dependencies = [
  "image",
  "lazy_static",
@@ -1762,9 +1810,9 @@ dependencies = [
 
 [[package]]
 name = "rocket"
-version = "0.5.0"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9e7bb57ccb26670d73b6a47396c83139447b9e7878cab627fdfe9ea8da489150"
+checksum = "a516907296a31df7dc04310e7043b61d71954d703b603cc6867a026d7e72d73f"
 dependencies = [
  "async-stream",
  "async-trait",
@@ -1808,9 +1856,9 @@ dependencies = [
 
 [[package]]
 name = "rocket_codegen"
-version = "0.5.0"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a2238066abf75f21be6cd7dc1a09d5414a671f4246e384e49fe3f8a4936bd04c"
+checksum = "575d32d7ec1a9770108c879fc7c47815a80073f96ca07ff9525a94fcede1dd46"
 dependencies = [
  "devise",
  "glob",
@@ -1825,14 +1873,14 @@ dependencies = [
 
 [[package]]
 name = "rocket_http"
-version = "0.5.0"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "37a1663694d059fe5f943ea5481363e48050acedd241d46deb2e27f71110389e"
+checksum = "e274915a20ee3065f611c044bd63c40757396b6dbc057d6046aec27f14f882b9"
 dependencies = [
  "cookie",
  "either",
  "futures",
- "http",
+ "http 0.2.12",
  "hyper",
  "indexmap",
  "log",
@@ -1917,9 +1965,9 @@ checksum = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
 
 [[package]]
 name = "serde"
-version = "1.0.199"
+version = "1.0.203"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0c9f6e76df036c77cd94996771fb40db98187f096dd0b9af39c6c6e452ba966a"
+checksum = "7253ab4de971e72fb7be983802300c30b5a7f0c2e56fab8abfc6a214307c0094"
 dependencies = [
  "serde_derive",
 ]
@@ -1948,9 +1996,9 @@ dependencies = [
 
 [[package]]
 name = "serde_derive"
-version = "1.0.199"
+version = "1.0.203"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "11bd257a6541e141e42ca6d24ae26f7714887b47e89aa739099104c7e4d3b7fc"
+checksum = "500cbc0ebeb6f46627f50f3f5811ccf6bf00643be300b4c3eabc0ef55dc5b5ba"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1959,9 +2007,9 @@ dependencies = [
 
 [[package]]
 name = "serde_json"
-version = "1.0.116"
+version = "1.0.117"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3e17db7126d17feb94eb3fad46bf1a96b034e8aacbc2e775fe81505f8b0b2813"
+checksum = "455182ea6142b14f93f4bc5320a2b31c1f266b66a4a5c858b013302a5d8cbfc3"
 dependencies = [
  "itoa",
  "ryu",
@@ -2853,11 +2901,11 @@ dependencies = [
 
 [[package]]
 name = "yew-hooks"
-version = "0.3.1"
+version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1b6f2fe60864adbcc36f1d51f748a186f56f99857c55521d4c9ec1c6e4a0d0a9"
+checksum = "cbe7d30ef9d9afb9be38b1b310c42d59963c6d1c950f0e0435b78b346b4b24bf"
 dependencies = [
- "gloo 0.10.0",
+ "gloo 0.11.0",
  "js-sys",
  "log",
  "serde",
