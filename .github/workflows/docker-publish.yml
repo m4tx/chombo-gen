@@ -33,7 +33,7 @@ jobs:
           images: ${{ env.REGISTRY }}/m4tx/chombo-gen-backend
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: chombo-gen-backend.dockerfile
@@ -66,7 +66,7 @@ jobs:
           images: ${{ env.REGISTRY }}/m4tx/chombo-gen-frontend
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: chombo-gen-frontend.dockerfile
@@ -99,7 +99,7 @@ jobs:
           images: ${{ env.REGISTRY }}/m4tx/chombo-gen-proxy
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: chombo-gen-proxy.dockerfile
