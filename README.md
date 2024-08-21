@@ -90,5 +90,5 @@ After that, the website will be available on at [localhost:8000](http://localhos
 
 This project uses [riichi-hand-rs](https://github.com/m4tx/riichi-hand-rs) library, which uses:
 
-* modified [riichi-mahjong-tiles](https://github.com/FluffyStuff/riichi-mahjong-tiles) by [FluffyStuff](https://github.com/FluffyStuff), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/),
+* modified [riichi-mahjong-tiles](https://github.com/FluffyStuff/riichi-mahjong-tiles) by [FluffyStuff](https://github.com/FluffyStuff) in [public domain/CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/),
 * mahjong tiles by [Martin Persson](https://www.martinpersson.org/) which are free for personal and commercial use under the condition that a link to the author's page is provided.
