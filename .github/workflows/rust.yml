@@ -42,7 +42,7 @@ jobs:
           targets: wasm32-unknown-unknown
 
       - name: Install trunk
-        run: cargo install trunk
+        run: cargo install --locked --no-default-features -F update_check,rustls trunk
 
       - name: Build
         run: cargo +${{ matrix.rust }} build --features=${{ matrix.features }}
