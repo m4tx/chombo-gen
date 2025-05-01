@@ -1,6 +1,6 @@
 FROM rust:1.85 as builder
 RUN rustup target add wasm32-unknown-unknown && \
-     cargo install trunk
+     cargo install --locked trunk
 WORKDIR /usr/src/chombo-gen
 COPY . .
 WORKDIR /usr/src/chombo-gen/chombo-gen-frontend
