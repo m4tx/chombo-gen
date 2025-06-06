@@ -1,15 +1,15 @@
 use std::error::Error;
 use std::fmt::{Display, Formatter};
-use std::io::Cursor;
 
 use chombo_gen_common::errors::ServiceErrorResponse;
-use log::error;
-use rocket::http::{ContentType, Status};
-use rocket::response::Responder;
-use rocket::tokio::task::JoinError;
-use rocket::{response, Request, Response};
+use cot::StatusCode;
+use cot::json::Json;
+use cot::response::{IntoResponse, WithStatus};
+use schemars::JsonSchema;
+use tokio::task::JoinError;
+use tracing::error;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, JsonSchema)]
 pub enum ServiceError {
     Internal(String),
     BadRequest(String),
@@ -19,10 +19,10 @@ impl Display for ServiceError {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         match self {
             Self::Internal(msg) => {
-                write!(f, "{}", msg)
+                write!(f, "{msg}")
             }
             Self::BadRequest(msg) => {
-                write!(f, "{}", msg)
+                write!(f, "{msg}")
             }
         }
     }
@@ -31,28 +31,26 @@ impl Display for ServiceError {
 impl Error for ServiceError {}
 
 impl ServiceError {
-    fn get_http_status(&self) -> Status {
+    fn get_http_status(&self) -> StatusCode {
         match self {
-            Self::Internal(_) => Status::InternalServerError,
-            Self::BadRequest(_) => Status::BadRequest,
+            Self::Internal(_) => StatusCode::INTERNAL_SERVER_ERROR,
+            Self::BadRequest(_) => StatusCode::BAD_REQUEST,
         }
     }
 }
 
-#[rocket::async_trait]
-impl<'r> Responder<'r, 'static> for ServiceError {
-    fn respond_to(self, _: &'r Request<'_>) -> response::Result<'static> {
-        let err_response = serde_json::to_string(&ServiceErrorResponse {
-            message: self.to_string(),
-        })
-        .unwrap();
-
-        Response::build()
-            .status(self.get_http_status())
-            .header(ContentType::JSON)
-            .sized_body(err_response.len(), Cursor::new(err_response))
-            .ok()
+impl From<ServiceError> for cot::Error {
+    fn from(error: ServiceError) -> Self {
+        let status_code = error.get_http_status();
+        cot::Error::with_status(error, status_code)
     }
+}
+
+pub async fn error_handler(error: cot::Error) -> WithStatus<Json<ServiceErrorResponse>> {
+    Json(ServiceErrorResponse {
+        message: error.to_string(),
+    })
+    .with_status(error.status_code())
 }
 
 impl From<JoinError> for ServiceError {
