@@ -16,6 +16,7 @@ license = "AGPL-3.0-only"
 [dependencies]
 serde.workspace = true
 rocket = { version = "0.5.1", optional = true }
+schemars = "0.8"
 
 [features]
 backend = ["rocket"]

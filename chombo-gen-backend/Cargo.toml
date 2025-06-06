@@ -14,7 +14,10 @@ homepage = "https://github.com/m4tx/chombo-gen"
 license = "AGPL-3.0-only"
 
 [dependencies]
+async-trait = "0.1.88"
+bytes = "1.10"
 chombo-gen-common = { path = "../chombo-gen-common", features = ["backend"] }
+cot = { path = "/home/m4tx/projects/cot/cot", features = ["json", "openapi", "swagger-ui"] }
 riichi_hand = "0.6.3"
 rocket = "0.5.1"
 rocket-cache-response = "0.6.4"
@@ -24,3 +27,5 @@ serde_json = "1.0.140"
 log = { version = "0.4.27", features = ["max_level_trace", "release_max_level_info"] }
 chrono = "0.4.41"
 time = "0.3.41"
+schemars = "0.8"
+indexmap = "2.9.0"

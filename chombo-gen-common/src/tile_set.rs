@@ -2,10 +2,11 @@ use std::fmt::{Display, Formatter};
 
 #[cfg(feature = "backend")]
 use rocket::form::FromFormField;
-
+use schemars::JsonSchema;
+use serde::Deserialize;
 use crate::enums::EnumName;
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Deserialize, JsonSchema)]
 #[cfg_attr(feature = "backend", derive(FromFormField))]
 pub enum TileSet {
     Yellow,
