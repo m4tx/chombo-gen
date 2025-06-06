@@ -3,7 +3,7 @@
 fail_fast: false
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v5.0.0
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -28,7 +28,7 @@ repos:
       - id: fmt
 
   - repo: https://github.com/AleksaC/hadolint-py
-    rev: v2.12.0.3
+    rev: v2.12.1b3
     hooks:
       - id: hadolint
         files: (Dockerfile|.dockerfile)$
