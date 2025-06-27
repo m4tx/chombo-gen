@@ -77,7 +77,7 @@ pub fn Hand(props: &Props) -> Html {
     match (*hand_state).clone() {
         HandState::Image(img) => {
             let encoded_url = base64::engine::general_purpose::STANDARD.encode(img);
-            let encoded_url = format!("data:image/png;base64,{}", encoded_url);
+            let encoded_url = format!("data:image/png;base64,{encoded_url}");
             html! {
                 <>
                     <img src={ encoded_url.clone() } class="img-fluid mx-auto d-block mb-4" />

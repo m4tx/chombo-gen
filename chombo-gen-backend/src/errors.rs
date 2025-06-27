@@ -19,10 +19,10 @@ impl Display for ServiceError {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         match self {
             Self::Internal(msg) => {
-                write!(f, "{}", msg)
+                write!(f, "{msg}")
             }
             Self::BadRequest(msg) => {
-                write!(f, "{}", msg)
+                write!(f, "{msg}")
             }
         }
     }
@@ -57,7 +57,7 @@ impl<'r> Responder<'r, 'static> for ServiceError {
 
 impl From<JoinError> for ServiceError {
     fn from(error: JoinError) -> Self {
-        error!("{:?}", error);
+        error!("{error:?}");
         Self::Internal(error.to_string())
     }
 }

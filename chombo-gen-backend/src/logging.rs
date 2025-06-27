@@ -18,7 +18,7 @@ impl log::Log for Logger {
                 record.args()
             );
 
-            eprintln!("{}", msg);
+            eprintln!("{msg}");
         }
     }
 

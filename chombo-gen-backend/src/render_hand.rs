@@ -20,21 +20,21 @@ use crate::errors::ServiceError;
 
 impl From<HandParseError> for ServiceError {
     fn from(error: HandParseError) -> Self {
-        error!("{:?}", error);
+        error!("{error:?}");
         Self::BadRequest(error.to_string())
     }
 }
 
 impl From<ImageError> for ServiceError {
     fn from(error: ImageError) -> Self {
-        error!("{:?}", error);
+        error!("{error:?}");
         Self::BadRequest(error.to_string())
     }
 }
 
 impl From<HandRenderError> for ServiceError {
     fn from(error: HandRenderError) -> Self {
-        error!("{:?}", error);
+        error!("{error:?}");
         Self::BadRequest(error.to_string())
     }
 }
@@ -81,8 +81,7 @@ pub async fn render_hand(
         let create_png_elapsed = create_png_time.elapsed();
 
         info!(
-            "Hand {}: rendering took {:?}, PNG encoding took {:?}",
-            hand, render_elapsed, create_png_elapsed
+            "Hand {hand}: rendering took {render_elapsed:?}, PNG encoding took {create_png_elapsed:?}"
         );
 
         Ok::<Vec<u8>, ServiceError>(buf)
