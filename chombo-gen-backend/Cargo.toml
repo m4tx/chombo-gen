@@ -1,8 +1,7 @@
 [package]
 name = "chombo-gen-backend"
 version = "0.1.0"
-edition = "2021"
-rust-version = "1.68"
+edition = "2024"
 
 description = "Web service generating images of Japanese (Riichi) Mahjong hands - backend server"
 categories = ["rendering", "web-programming"]
@@ -14,13 +13,16 @@ homepage = "https://github.com/m4tx/chombo-gen"
 license = "AGPL-3.0-only"
 
 [dependencies]
-chombo-gen-common = { path = "../chombo-gen-common", features = ["backend"] }
-riichi_hand = "0.6.3"
-rocket = "0.5.1"
-rocket-cache-response = "0.6.4"
+async-trait = "0.1.88"
+bytes = "1.10"
+chombo-gen-common = { path = "../chombo-gen-common" }
+cot = { git = "https://github.com/cot-rs/cot", rev = "3d3ea78b1044d0886dcb73fbbe91591b7d8ff4e1", version = "0.3", features = ["json", "openapi", "swagger-ui"], default-features = false }
 image = { version = "0.25.6", default-features = false, features = ["png"] }
-serde = { version = "1.0.219", features = ["derive"] }
-serde_json = "1.0.140"
-log = { version = "0.4.27", features = ["max_level_trace", "release_max_level_info"] }
-chrono = "0.4.41"
+indexmap = "2.10.0"
+riichi_hand = "0.6.3"
+schemars.workspace = true
+serde.workspace = true
 time = "0.3.41"
+tokio = "1.46"
+tracing = { version = "0.1", features = ["max_level_trace", "release_max_level_info"] }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }

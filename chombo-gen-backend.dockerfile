@@ -6,5 +6,4 @@ RUN cargo install --path . --locked
 
 FROM debian:12-slim
 COPY --from=builder /usr/local/cargo/bin/chombo-gen-backend /usr/local/bin/chombo-gen-backend
-ENV ROCKET_ADDRESS=0.0.0.0
-CMD ["chombo-gen-backend"]
+CMD ["chombo-gen-backend", "-l", "0.0.0.0:8000"]

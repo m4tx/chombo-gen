@@ -1,0 +1,25 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: chombo-gen-backend.dockerfile
+    environment:
+      RUST_LOG: debug
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: chombo-gen-frontend.dockerfile
+    restart: unless-stopped
+
+  proxy:
+    build:
+      context: .
+      dockerfile: chombo-gen-proxy.dockerfile
+    restart: unless-stopped
+    depends_on:
+      - backend
+      - frontend
+    ports:
+      - "8000:80"

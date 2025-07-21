@@ -1,4 +1,3 @@
-version: "3.4"
 services:
   backend:
     image: ghcr.io/m4tx/chombo-gen-backend:master
@@ -15,4 +14,4 @@ services:
       - backend
       - frontend
     ports:
-      - 8000:80
+      - "8000:80"
