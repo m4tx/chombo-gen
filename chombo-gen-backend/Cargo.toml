@@ -23,6 +23,6 @@ riichi_hand = "0.6.3"
 schemars.workspace = true
 serde.workspace = true
 time = "0.3.41"
-tokio = "1.46"
+tokio = "1.47"
 tracing = { version = "0.1", features = ["max_level_trace", "release_max_level_info"] }
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
