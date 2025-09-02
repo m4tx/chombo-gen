@@ -13,16 +13,16 @@ homepage = "https://github.com/m4tx/chombo-gen"
 license = "AGPL-3.0-only"
 
 [dependencies]
-async-trait = "0.1.88"
+async-trait = "0.1.89"
 bytes = "1.10"
 chombo-gen-common = { path = "../chombo-gen-common" }
 cot = { git = "https://github.com/cot-rs/cot", rev = "3d3ea78b1044d0886dcb73fbbe91591b7d8ff4e1", version = "0.3", features = ["json", "openapi", "swagger-ui"], default-features = false }
-image = { version = "0.25.6", default-features = false, features = ["png"] }
-indexmap = "2.10.0"
+image = { version = "0.25.7", default-features = false, features = ["png"] }
+indexmap = "2.11.0"
 riichi_hand = "0.6.3"
 schemars.workspace = true
 serde.workspace = true
-time = "0.3.41"
+time = "0.3.42"
 tokio = "1.47"
 tracing = { version = "0.1", features = ["max_level_trace", "release_max_level_info"] }
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
