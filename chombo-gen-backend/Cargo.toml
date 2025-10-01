@@ -18,11 +18,11 @@ bytes = "1.10"
 chombo-gen-common = { path = "../chombo-gen-common" }
 cot = { version = "0.4", features = ["json", "openapi", "swagger-ui"], default-features = false }
 image = { version = "0.25.7", default-features = false, features = ["png"] }
-indexmap = "2.11.0"
+indexmap = "2.11.4"
 riichi_hand = "0.7"
 schemars.workspace = true
 serde.workspace = true
-time = "0.3.42"
+time = "0.3.44"
 tokio = "1.47"
 tracing = { version = "0.1", features = ["max_level_trace", "release_max_level_info"] }
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
