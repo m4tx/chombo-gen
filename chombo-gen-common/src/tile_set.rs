@@ -5,8 +5,9 @@ use serde::Deserialize;
 
 use crate::enums::EnumName;
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Deserialize, JsonSchema)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Deserialize, JsonSchema, Default)]
 pub enum TileSet {
+    #[default]
     Yellow,
     Red,
     Black,
@@ -21,12 +22,6 @@ impl EnumName for TileSet {
             TileSet::Black => "Black",
             TileSet::MartinPersson => "MartinPersson",
         }
-    }
-}
-
-impl Default for TileSet {
-    fn default() -> Self {
-        Self::Yellow
     }
 }
 
