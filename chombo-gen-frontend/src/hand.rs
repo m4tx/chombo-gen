@@ -16,18 +16,13 @@ pub struct ServiceErrorResponse {
     message: String,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Default)]
 pub enum HandState {
     Image(Vec<u8>),
     Error(ServiceErrorResponse),
     Loading,
+    #[default]
     Empty,
-}
-
-impl Default for HandState {
-    fn default() -> Self {
-        Self::Empty
-    }
 }
 
 const API_URL: Option<&str> = option_env!("CHOMBO_GEN_API_URL");
