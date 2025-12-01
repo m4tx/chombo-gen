@@ -14,11 +14,11 @@ license = "AGPL-3.0-only"
 
 [dependencies]
 async-trait = "0.1.89"
-bytes = "1.10"
+bytes = "1.11"
 chombo-gen-common = { path = "../chombo-gen-common" }
 cot = { version = "0.4", features = ["json", "openapi", "swagger-ui"], default-features = false }
-image = { version = "0.25.7", default-features = false, features = ["png"] }
-indexmap = "2.12.0"
+image = { version = "0.25.9", default-features = false, features = ["png"] }
+indexmap = "2.12.1"
 riichi_hand = "0.7"
 schemars.workspace = true
 serde.workspace = true
