@@ -22,7 +22,7 @@ indexmap = "2.12.1"
 riichi_hand = "0.7"
 schemars.workspace = true
 serde.workspace = true
-time = "0.3.44"
+time = "0.3.46"
 tokio = "1.48"
 tracing = { version = "0.1", features = ["max_level_trace", "release_max_level_info"] }
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
