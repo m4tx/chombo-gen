@@ -1,4 +1,4 @@
-FROM rust:1.92 as builder
+FROM rust:1.93 as builder
 WORKDIR /usr/src/chombo-gen
 COPY . .
 WORKDIR /usr/src/chombo-gen/chombo-gen-backend
