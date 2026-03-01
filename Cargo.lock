@@ -46,7 +46,7 @@ checksum = "6966317188cdfe54c58c0900a195d021294afb3ece9b7073d09e4018dbb1e3a2"
 dependencies = [
  "cfg-if",
  "indexmap",
- "schemars",
+ "schemars 0.9.0",
  "serde",
  "serde_json",
  "thiserror 2.0.18",
@@ -375,7 +375,7 @@ dependencies = [
  "image",
  "indexmap",
  "riichi_hand",
- "schemars",
+ "schemars 1.2.1",
  "serde",
  "time",
  "tokio",
@@ -387,7 +387,7 @@ dependencies = [
 name = "chombo-gen-common"
 version = "0.1.0"
 dependencies = [
- "schemars",
+ "schemars 1.2.1",
  "serde",
 ]
 
@@ -568,7 +568,7 @@ dependencies = [
  "multer",
  "password-auth",
  "pin-project-lite",
- "schemars",
+ "schemars 0.9.0",
  "serde",
  "serde_html_form",
  "serde_json",
@@ -2360,7 +2360,20 @@ dependencies = [
  "dyn-clone",
  "indexmap",
  "ref-cast",
- "schemars_derive",
+ "schemars_derive 0.9.0",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "schemars"
+version = "1.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a2b42f36aa1cd011945615b92222f6bf73c599a102a300334cd7f8dbeec726cc"
+dependencies = [
+ "dyn-clone",
+ "ref-cast",
+ "schemars_derive 1.2.1",
  "serde",
  "serde_json",
 ]
@@ -2370,6 +2383,18 @@ name = "schemars_derive"
 version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5016d94c77c6d32f0b8e08b781f7dc8a90c2007d4e77472cc2807bc10a8438fe"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "serde_derive_internals",
+ "syn 2.0.114",
+]
+
+[[package]]
+name = "schemars_derive"
+version = "1.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7d115b50f4aaeea07e79c1912f645c7513d81715d0420f8bc77a18c6260b307f"
 dependencies = [
  "proc-macro2",
  "quote",
